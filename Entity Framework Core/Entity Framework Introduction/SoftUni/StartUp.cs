@@ -11,7 +11,7 @@
         {
             SoftUniContext context = new SoftUniContext();
 
-            string result = GetEmployeesWithSalaryOver50000(context);
+            string result = GetEmployeesFromResearchAndDevelopment(context);
 
             Console.WriteLine(result);
         }
@@ -60,6 +60,34 @@
             }
 
             return resultSb.ToString().TrimEnd();
+        }
+
+        public static string GetEmployeesFromResearchAndDevelopment(SoftUniContext context)
+        {
+            var employees = context
+                .Employees
+                .Where(e => e.Department.Name == "Research and Development")
+                .OrderBy(e => e.Salary)
+                .ThenByDescending(e => e.FirstName)
+                .Select(e => new
+                {
+                    Name = $"{e.FirstName} {e.LastName}",
+                    Salary = e.Salary
+                })
+                .ToList();
+
+            var employeesInfoSb = new StringBuilder();
+
+            foreach (var employee in employees)
+            {
+                var employeeInfoLine =
+                    $"{employee.Name} from Research and Development - ${employee.Salary:F2}";
+
+                employeesInfoSb
+                    .AppendLine(employeeInfoLine);
+            }
+
+            return employeesInfoSb.ToString().TrimEnd();
         }
     }
 }
