@@ -4,12 +4,17 @@
     using System.ComponentModel.DataAnnotations;
     public class Visitation
     {
+        [Required]
         public int VisitationId { get; set; }
 
+        [Required]
         public DateTime Date { get; set; }
 
         [MaxLength(250)]
+        [Required]
         public string Comments { get; set; }
+
+        public int PatientId { get; set; }
 
         public Patient Patient { get; set; }
     }

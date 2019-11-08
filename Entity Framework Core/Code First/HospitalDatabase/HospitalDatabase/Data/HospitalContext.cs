@@ -39,6 +39,24 @@
             modelBuilder
                 .Entity<PatientMedicament>()
                 .HasKey(pk => new { pk.PatientId, pk.MedicamentId });
+
+            modelBuilder
+                .Entity<Patient>()
+                .HasMany(p => p.Visitations)
+                .WithOne(v => v.Patient)
+                .HasForeignKey(p => p.VisitationId);
+
+            modelBuilder
+                .Entity<Visitation>()
+                .HasOne(v => v.Patient)
+                .WithMany(p => p.Visitations)
+                .HasForeignKey(p => p.VisitationId);
+
+            modelBuilder
+                .Entity<Diagnose>()
+                .HasOne(d => d.Patient)
+                .WithMany(p => p.Diagnoses)
+                .HasForeignKey(p => p.DiagnoseId);
         }
     }
 }
