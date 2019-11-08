@@ -1,0 +1,9 @@
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\bin\Debug\netcoreapp2.1\P01_HospitalDatabase.Data.Models.deps.json
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\bin\Debug\netcoreapp2.1\P01_HospitalDatabase.Data.Models.runtimeconfig.json
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\bin\Debug\netcoreapp2.1\P01_HospitalDatabase.Data.Models.runtimeconfig.dev.json
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\bin\Debug\netcoreapp2.1\P01_HospitalDatabase.Data.Models.dll
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\obj\Debug\netcoreapp2.1\HospitalDatabase.AssemblyInfoInputs.cache
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\obj\Debug\netcoreapp2.1\HospitalDatabase.AssemblyInfo.cs
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\bin\Debug\netcoreapp2.1\P01_HospitalDatabase.Data.Models.pdb
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\obj\Debug\netcoreapp2.1\P01_HospitalDatabase.Data.Models.dll
+C:\Mario\C# DB\Entity Framework Core\Code First\HospitalDatabase\HospitalDatabase\obj\Debug\netcoreapp2.1\P01_HospitalDatabase.Data.Models.pdb
