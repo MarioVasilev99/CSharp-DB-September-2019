@@ -7,6 +7,7 @@
     using ViewModels.Employees;
     using ViewModels.Categories;
     using FastFood.Web.ViewModels.Items;
+    using FastFood.Web.ViewModels.Orders;
 
     public class FastFoodProfile : Profile
     {
@@ -37,6 +38,9 @@
 
             this.CreateMap<CreateItemInputModel, Item>();
             this.CreateMap<Item, ItemsAllViewModels>();
+
+            //Orders
+            this.CreateMap<CreateOrderInputModel, Order>();
         }
     }
 }

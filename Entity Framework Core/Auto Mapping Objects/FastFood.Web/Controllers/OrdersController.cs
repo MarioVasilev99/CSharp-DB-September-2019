@@ -7,6 +7,7 @@
 
     using Data;
     using ViewModels.Orders;
+    using FastFood.Models;
 
     public class OrdersController : Controller
     {
@@ -32,7 +33,10 @@
 
         [HttpPost]
         public IActionResult Create(CreateOrderInputModel model)
-        { 
+        {
+            var order = this.mapper.Map<Order>(model);
+            order.DateTime = DateTime.UtcNow;
+
             return this.RedirectToAction("All", "Orders");
         }
 
