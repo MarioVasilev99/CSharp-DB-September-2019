@@ -4,9 +4,9 @@
     {
         public int OrderId { get; set; }
 
-        public string Customer { get; set; }
+        public string CustomerName { get; set; }
 
-        public string Employee { get; set; }
+        public string EmployeeName { get; set; }
 
         public string DateTime { get; set; }
     }

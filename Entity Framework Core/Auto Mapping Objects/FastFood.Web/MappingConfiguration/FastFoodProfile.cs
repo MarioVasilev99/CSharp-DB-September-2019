@@ -41,6 +41,8 @@
 
             //Orders
             this.CreateMap<CreateOrderInputModel, Order>();
+            this.CreateMap<Order, OrderAllViewModel>()
+                .ForMember(m => m.CustomerName, m => m.MapFrom(o => o.Customer));
         }
     }
 }
