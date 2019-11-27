@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Text;
 using AutoMapper;
-using CarDealer.Models;
+//using CarDealer.Models;
 
 namespace CarDealer
 {
@@ -10,7 +10,7 @@ namespace CarDealer
     {
         public CarDealerProfile()
         {
-        
+
         }
     }
 }
