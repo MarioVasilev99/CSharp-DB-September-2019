@@ -1,0 +1,10 @@
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\bin\Debug\netcoreapp2.1\ProductShop.deps.json
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\bin\Debug\netcoreapp2.1\ProductShop.runtimeconfig.json
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\bin\Debug\netcoreapp2.1\ProductShop.runtimeconfig.dev.json
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\bin\Debug\netcoreapp2.1\ProductShop.dll
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\bin\Debug\netcoreapp2.1\ProductShop.pdb
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\obj\Debug\netcoreapp2.1\ProductShop.csprojAssemblyReference.cache
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\obj\Debug\netcoreapp2.1\ProductShop.AssemblyInfoInputs.cache
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\obj\Debug\netcoreapp2.1\ProductShop.AssemblyInfo.cs
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\obj\Debug\netcoreapp2.1\ProductShop.dll
+C:\Mario\C# DB\Entity Framework Core\XML Processing\ProductShop\obj\Debug\netcoreapp2.1\ProductShop.pdb
