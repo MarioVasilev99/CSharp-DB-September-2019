@@ -4,6 +4,7 @@
     using ProductShop.Models;
 
     using AutoMapper;
+    using ProductShop.Dtos.Export;
 
     public class ProductShopProfile : Profile
     {
@@ -20,6 +21,11 @@
 
             //Import Categories-Products
             this.CreateMap<ImportCategoryProductsDto, CategoryProduct>();
+
+            //Export ProductsInRange
+            this.CreateMap<Product, ExportProductsInRangeDto>()
+                .ForMember(m => m.BuyerFullName,
+                           m => m.MapFrom(s => $"{s.Buyer.FirstName} {s.Buyer.LastName}"));
         }
     }
 }

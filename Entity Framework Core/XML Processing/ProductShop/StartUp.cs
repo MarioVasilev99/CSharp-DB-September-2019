@@ -2,13 +2,18 @@
 {
     using System;
     using System.IO;
+    using System.Text;
     using System.Xml.Serialization;
+    using System.Linq;
 
     using ProductShop.Data;
     using ProductShop.Dtos.Import;
+    using ProductShop.Dtos.Export;
     using ProductShop.Models;
 
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using System.Xml;
 
     public class StartUp
     {
@@ -31,7 +36,13 @@
                 //Console.WriteLine(ImportCategories(db, inputXml));
 
                 // Import Categories-Products - P04
-                //Console.WriteLine(ImportCategoryProducts(db, inputXml));
+                //Console.WriteLine(ImportCategoryProducts(db, inputXml))
+
+                // Get Products in Range - P05
+                //Console.WriteLine(GetProductsInRange(db));
+
+                // Get Sold Products - P06
+                Console.WriteLine(GetSoldProducts(db));
             }
         }
 
@@ -126,5 +137,68 @@
             // Return the count of imported categories-products
             return $"Successfully imported {categoriesProducts.Length}";
         }
+
+        // Export Products In Range - P05
+        public static string GetProductsInRange(ProductShopContext context)
+        {
+            // Get Products From Db And Project them to DTO Array
+            var products = context.Products
+                                  .Where(p => p.Price >= 500 && p.Price <= 1000)
+                                  .OrderBy(p => p.Price)
+                                  .Take(10)
+                                  .ProjectTo<ExportProductsInRangeDto>()
+                                  .ToArray();
+
+            // Initialize XML Serializer
+            var xmlSerializer = new XmlSerializer(typeof(ExportProductsInRangeDto[]),
+                                                  new XmlRootAttribute("Products"));
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+            // Initialize StringBuilder And use StringWriter to write exported Xml
+            var sb = new StringBuilder();
+            using (var writer = new StringWriter(sb))
+            {
+                xmlSerializer.Serialize(writer, products, namespaces);
+            }
+
+            // Return the Serialized Products Array in XML Format
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any())
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .Select(u => new ExportSoldProductsDto
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    SoldProducts = u.ProductsSold
+                        .Select(p => new ProductDto
+                        {
+                            Price = p.Price,
+                            Name = p.Name
+                        })
+                        .ToArray()
+                })
+                .Take(5)
+                .ToArray();
+
+            var xmlSerializer = new XmlSerializer(typeof(ExportSoldProductsDto[]),
+                                                  new XmlRootAttribute("Users"));
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            var sb = new StringBuilder();
+            using (var writer = new StringWriter(sb))
+            {
+                xmlSerializer.Serialize(writer, users, namespaces);
+            }
+
+            var result = sb.ToString().TrimEnd();
+            return result;
+        }
+
     }
 }
